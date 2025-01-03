@@ -16,7 +16,7 @@ from flowmse.model import VFModel_Finetuning
 
 import torch
 torch.cuda.empty_cache()
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
 def get_argparse_groups(parser):
      groups = {}
      for group in parser._action_groups:
@@ -95,7 +95,7 @@ if __name__ == '__main__':
      # Initialize the Trainer and the DataModule
      trainer = pl.Trainer.from_argparse_args(
           arg_groups['pl.Trainer'],
-          accelerator='gpu', strategy=DDPPlugin(find_unused_parameters=False), gpus=[2,3], auto_select_gpus=False, 
+          accelerator='gpu', strategy=DDPPlugin(find_unused_parameters=False), gpus=[5], auto_select_gpus=False, 
           logger=logger, log_every_n_steps=10, num_sanity_val_steps=1, max_epochs=350,
           callbacks=callbacks
      )
