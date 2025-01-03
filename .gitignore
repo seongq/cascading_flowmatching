@@ -9,3 +9,4 @@ flowmse/*.ipynb
 *.sh
 *.csv
 *.ipynb
+**/__pycache__/
